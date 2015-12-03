@@ -1,19 +1,19 @@
 #pragma once
 
-struct listElement
+struct ListElement
 {
 	int element;
-	listElement *next;
+	ListElement *next;
 };
 
-struct listHead
+struct ListHead
 {
 	int numOfElements;
-	listElement *head;
+	ListElement *head;
 };
 
-void makeWarder(listHead* list);
-void addElement(listElement** source, int number);
-void printList(listHead* list);
-void reverseList(listHead* list);
-void deleteAllList(listHead* list);
+void makeWarder(ListHead* list);
+void addElement(ListElement** source, int number);
+void printList(ListHead* list);
+void reverseList(ListHead* list);
+void deleteAllList(ListHead* list);

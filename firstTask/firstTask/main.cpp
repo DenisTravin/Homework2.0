@@ -13,9 +13,9 @@ void main()
 	}
 	else
 	{
-		listHead list;
+		ListHead list;
 		makeWarder(&list);
-		listElement* temp = list.head;
+		ListElement* temp = list.head;
 		fin >> list.numOfElements;
 		for (int i = 0; i < list.numOfElements; i++)
 		{
