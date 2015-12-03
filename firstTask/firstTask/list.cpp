@@ -1,15 +1,16 @@
 #include <cstdio>
 #include "list.h"
 
-void makeWarder(listHead* list)
+void makeWarder(listHead* list)//making warder for list
 {
+	list->numOfElements = 0;
 	listElement* newElement = new listElement;
 	newElement->element = 0;
 	newElement->next = nullptr;
 	list->head = newElement;
 }
 
-void addElement(listElement** source, int number)
+void addElement(listElement** source, int number)//add new element in list after source
 {
 	listElement *newElementTemp = new listElement;
 	newElementTemp->element = number;
@@ -18,7 +19,7 @@ void addElement(listElement** source, int number)
 	*source = newElementTemp;
 }
 
-void printList(listHead* list)
+void printList(listHead* list)//print all list
 {
 	listElement* temp = list->head->next;
 	for (int i = 0; i < list->numOfElements; i++)
@@ -28,28 +29,32 @@ void printList(listHead* list)
 	}
 }
 
-void reverseList(listHead* list)
+void reverseList(listHead* list)//reverse list
 {
-	listElement* tempForRe = list->head->next;
-	listElement* tempNext = tempForRe->next;
-	tempForRe->next = nullptr;
+	listElement* firstElement = list->head->next;
+	if (firstElement == nullptr || firstElement->next == nullptr)//if list empty or have only one element we should do nothing
+	{
+		return;
+	}
+	listElement* secondElement = firstElement->next;
+	firstElement->next = nullptr;
 	for (int i = 0; i < list->numOfElements - 1; i++)
 	{
-		listElement* temp = tempNext->next;
-		tempNext->next = tempForRe;
-		tempForRe = tempNext;
+		listElement* temp = secondElement->next;
+		secondElement->next = firstElement;
+		firstElement = secondElement;
 		if (temp != nullptr)
 		{
-			tempNext = temp;
+			secondElement = temp;
 		}
 		else
 		{
-			list->head->next = tempNext;
+			list->head->next = secondElement;
 		}
 	}
 }
 
-void deleteAllList(listHead* list)
+void deleteAllList(listHead* list)//delete all list with warder
 {
 	listElement* temp = list->head;
 	for (int i = 0; i < list->numOfElements + 1; i++)
