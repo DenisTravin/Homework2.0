@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdio>
-#include <vector>
 
 const int maxCity = 100;//max of cities 
 
