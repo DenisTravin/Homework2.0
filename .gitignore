@@ -31,4 +31,4 @@
 *.tlog
 *.lastbuildstate
 
-Debug/
+**/Debug/
